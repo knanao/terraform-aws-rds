@@ -71,7 +71,7 @@ resource "aws_db_instance" "education" {
   instance_class         = "db.t3.micro"
   allocated_storage      = 5
   engine                 = "postgres"
-  engine_version         = aws_rds_engine_version.posgres.version
+  engine_version         = data.aws_rds_engine_version.posgres.version
   username               = var.db_username
   password               = var.db_password
   db_subnet_group_name   = aws_db_subnet_group.education.name
