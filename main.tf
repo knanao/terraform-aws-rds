@@ -62,8 +62,8 @@ resource "random_pet" "random" {
   length = 1
 }
 
-data "aws_rds_engine_version" "posgres" {
-  engine = "posgres"
+data "aws_rds_engine_version" "postgres" {
+  engine = "postgres"
 }
 
 resource "aws_db_instance" "education" {
@@ -71,7 +71,7 @@ resource "aws_db_instance" "education" {
   instance_class         = "db.t3.micro"
   allocated_storage      = 5
   engine                 = "postgres"
-  engine_version         = data.aws_rds_engine_version.posgres.version
+  engine_version         = data.aws_rds_engine_version.postgres.version
   username               = var.db_username
   password               = var.db_password
   db_subnet_group_name   = aws_db_subnet_group.education.name
